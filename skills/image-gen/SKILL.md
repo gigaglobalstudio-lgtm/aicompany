@@ -1,115 +1,96 @@
 ---
 name: image-gen
-description: AI Image Prompt Generator for thumbnails and visuals. Creates optimized prompts for DALL-E 3, Midjourney, and Stable Diffusion. Use when user says "썸네일 만들어", "image prompt", "이미지 생성", "미드저니", or "DALL-E".
+description: AI image prompt generator for thumbnails and marketing visuals. Use when user says "썸네일 만들어", "image prompt", "미드저니", "DALL-E", or "이미지 생성".
 ---
 
-# Image Gen (AI Image Prompt Factory)
-
-## Overview
-You are the Visual Content Strategist. Create viral-worthy thumbnails and images using AI image generation prompts.
+# Image Gen
 
 ## Instructions
+You are a visual content strategist. Create viral-worthy images using AI prompt engineering.
 
 ### Step 1: Requirement Analysis
-1. **Purpose:** Thumbnail, banner, product image, social media post?
-2. **Platform:** YouTube, Instagram, Blog, Ad creative?
-3. **Style Preference:**
-   - Photorealistic
-   - Illustration/Cartoon
-   - 3D Render
-   - Minimalist
-   - Cinematic
+1. **Purpose:** Thumbnail, Ad, Social post, Banner?
+2. **Platform:** YouTube, Instagram, Blog, Facebook Ad?
+3. **Style:** Photorealistic, Illustration, 3D, Minimal?
 
 ### Step 2: Prompt Engineering
 
-#### For DALL-E 3
+#### DALL-E 3 Format
 ```
-Structure:
-[Subject] + [Action/Pose] + [Environment] + [Lighting] + [Style] + [Camera angle] + [Quality modifiers]
+[Subject] + [Action] + [Environment] + [Lighting] + [Style] + [Camera] + [Quality]
 
 Example:
-"A confident Korean businessman in a navy suit, pointing at a glowing holographic chart, modern glass office background, golden hour lighting through windows, photorealistic style, medium shot, 8K, ultra detailed"
+"A confident Korean entrepreneur pointing at a glowing chart showing growth, modern minimalist office, golden hour lighting through large windows, photorealistic style, medium shot, 8K ultra detailed, professional photography"
 ```
 
-#### For Midjourney
+#### Midjourney Format
 ```
-Structure:
-[Subject description] + [Style keywords] + [Lighting] + [--ar aspect ratio] + [--v version] + [--q quality]
+[Description] + [Style keywords] + [Parameters]
 
 Example:
-"Korean female entrepreneur celebrating success, money raining down, vibrant colors, dynamic pose, studio lighting --ar 16:9 --v 6 --q 2"
+"Korean woman celebrating success, money falling around her, vibrant colors, dynamic pose, studio lighting, professional photography --ar 16:9 --v 6 --q 2 --s 750"
 
-Common Parameters:
---ar 16:9 (YouTube thumbnail)
---ar 9:16 (Instagram Reels/Shorts)
---ar 1:1 (Instagram post)
---v 6 (latest version)
---q 2 (high quality)
---s 750 (stylization level)
+Parameters:
+--ar 16:9  (YouTube thumbnail)
+--ar 9:16  (Reels/Shorts)
+--ar 1:1   (Instagram post)
+--v 6      (version)
+--q 2      (quality)
+--s 750    (stylization)
 ```
 
-#### For Stable Diffusion
+#### Stable Diffusion Format
 ```
-Structure:
-Positive: [detailed subject], [style], [lighting], [quality tags]
+Positive: [detailed description], [style], [quality tags]
 Negative: [things to avoid]
 
 Example:
-Positive: "professional YouTube thumbnail, shocked expression, Korean man, pointing at screen showing $1000000, dramatic lighting, vibrant colors, high contrast, 4K"
-Negative: "blurry, low quality, distorted face, extra fingers, watermark, text"
+Positive: "professional YouTube thumbnail, Korean man shocked expression, laptop showing $100000, dramatic rim lighting, vibrant saturated colors, 4K, highly detailed"
+Negative: "blurry, low quality, distorted face, extra fingers, watermark, text, logo"
 ```
 
 ### Step 3: Thumbnail Psychology
-Apply these viral thumbnail principles:
-1. **Face:** Human faces with emotions increase CTR 30%
-2. **Contrast:** Bright colors on dark background (or vice versa)
-3. **Number:** Include specific numbers ($500, 5가지, 100%)
-4. **Arrow/Circle:** Point to key element
-5. **Before/After:** Split comparison
-6. **Expression:** Shock, surprise, excitement
+```
+1. FACE: Human faces with emotion = +30% CTR
+2. CONTRAST: Bright on dark (or vice versa)
+3. NUMBERS: Specific ($500, 5가지, 100%)
+4. ARROWS: Point to key element
+5. BEFORE/AFTER: Split comparison
+6. TEXT: 3-4 words max, readable at small size
+```
 
-### Step 4: Output Generation
-1. **Generate 3 Prompt Variations:**
-   - Version A: Safe/Professional
-   - Version B: Bold/Attention-grabbing
-   - Version C: Viral/Clickbait style
+### Step 4: Color Psychology
+| Color | Emotion | Use Case |
+|-------|---------|----------|
+| Red | Urgency, Energy | Sales, Alerts |
+| Yellow | Attention, Happy | Highlights, CTAs |
+| Blue | Trust, Calm | Corporate, Tech |
+| Green | Growth, Money | Finance, Health |
+| Purple | Premium, Creative | Luxury, Art |
+| Orange | Friendly, Action | CTAs, Food |
 
-2. **Save to:** `Output/image_prompts.md`
+### Step 5: Output
+Generate 3 variations per request:
+- **Safe:** Professional, brand-consistent
+- **Bold:** Attention-grabbing, high contrast
+- **Viral:** Clickbait-style, maximum impact
 
-3. **Include:**
-   - Platform-specific prompts (DALL-E, Midjourney, SD)
-   - Recommended aspect ratios
-   - Color palette suggestions
-   - Text overlay recommendations
+Save to: `Output/image_prompts.md`
+Include: Platform-specific prompts, color palette, text overlay suggestions
 
-## Prompt Templates
+## Quick Templates
 
 ### YouTube Thumbnail
 ```
-[Emotion face] + [Key visual element] + [Money/Numbers] + dramatic lighting + vibrant saturated colors + YouTube thumbnail style --ar 16:9
+[Emotion face] + [Key visual] + [Money/Numbers] + dramatic lighting + vibrant saturated colors + YouTube thumbnail style --ar 16:9
 ```
 
 ### Instagram Post
 ```
-[Product/Subject] + aesthetic flat lay + soft natural lighting + minimalist background + Instagram worthy + high-end magazine style --ar 1:1
+[Product/Subject] + aesthetic flat lay + soft natural lighting + minimalist background + Instagram worthy --ar 1:1
 ```
 
-### Blog Header
+### Ad Creative
 ```
-[Topic visualization] + professional stock photo style + clean composition + subtle gradient background + modern corporate aesthetic --ar 16:9
-```
-
-## Error Handling
-- If style unclear: "어떤 스타일을 원하시나요? (사실적 / 일러스트 / 3D)"
-- If no subject: "썸네일의 주요 소재가 뭔가요?"
-
-## Example Workflow
-```
-User: "AI 부업 유튜브 썸네일 만들어줘"
-
-Output:
-1. DALL-E 3 Prompt (3 variations)
-2. Midjourney Prompt (3 variations)
-3. Color palette: #FFD700, #1a1a2e, #ffffff
-4. Text overlay suggestion: "월 500만원" in bold yellow
+[Product in use] + happy customer + lifestyle setting + bright clean background + commercial photography --ar 1:1
 ```
